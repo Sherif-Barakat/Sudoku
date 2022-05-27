@@ -1,0 +1,73 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void init(int puzzle[3][3])
+{
+	int  r, c;
+	
+	for (r = 0; r < 3; r++)
+		for (c = 0; c < 3; c++)
+		{
+			printf("Enter the element (%d,%d)\n", r + 1, c + 1);
+			scanf("%d", &puzzle[r][c]);
+		}
+}
+
+void print_puzzle(int printable1[3][3],int printable2[3][3],int printable3[3][3])
+{
+	int r, c;
+	for (r = 0; r < 3; r++)
+	{
+		printf(":");
+		for (c = 0; c < 3; c++)
+			printf("%d ", printable1[r][c]);
+		printf(":");
+		for (c = 0; c < 3; c++)
+			printf("%d ", printable2[r][c]);
+		printf(":");
+		for (c = 0; c < 3; c++)
+			printf("%d ", printable3[r][c]);
+		printf(":");
+		printf("\n");
+	}
+
+
+}
+
+
+
+
+
+void main()
+{
+	int choice, box1[3][3], box2[3][3], box3[3][3], box4[3][3], box5[3][3], box6[3][3], box7[3][3], box8[3][3], box9[3][3];
+	printf("Welcome to the sudoku puzzle game");
+	printf("\nThis program allows you to make a sudoku puzzle AND have someone else solve it!");
+	printf("\nIt can also automatically solve your puzzle for you if it gets too hard!");
+	do 
+	{
+		printf("Please choose one of the following options:");
+		printf("\n1-I want to make a puzzle manually");
+		printf("\n2-Make a puzzle for me");
+		printf("\n3-Start solving the puzzle");
+		printf("\n4-Reset the puzzle to its intial state");
+		printf("\n5-Solve the puzzle for me");
+		printf("\n6-Check my final solution");
+		printf("\n7-Quit the game");
+		scanf("%d", &choice);
+		switch (choice)
+		{
+		case 1:
+			printf("\nThis is the intial stage of the puzzle\nEnter a number between 1 and 9 in each box,or zero if you wish to leave it empty.\n");
+			printf("Please don't enter the same number twice in the same row,column or box\n");
+			init(box1); init(box2); init(box3); init(box4); init(box5); init(box6); init(box7); init(box8); init(box9);
+			print_puzzle(box1,box2,box3); print_puzzle(box4,box5,box6); print_puzzle(box7,box8,box9);
+			break;
+		
+
+		}
+	} while (choice != 7);
+}
+
